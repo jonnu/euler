@@ -13,8 +13,8 @@ namespace Euler
             Int64 upperLimit = 600851475143;
             List<Int64> factors = primeFactors(upperLimit).ToList();
 
-            System.Console.WriteLine(factors.Last());
-            System.Console.ReadLine();
+            Console.WriteLine(factors.Last());
+            Console.ReadLine();
         }
 
         public static IEnumerable<Int64> primeFactors(Int64 upperLimit)

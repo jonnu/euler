@@ -24,8 +24,8 @@ namespace Euler
                     .Count() == 0;
             }
 
-            System.Console.WriteLine(smallestValue);
-            System.Console.ReadKey();
+            Console.WriteLine(smallestValue);
+            Console.ReadKey();
         }
 
     }

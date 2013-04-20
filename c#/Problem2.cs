@@ -15,8 +15,8 @@ namespace Euler
                 .Where(i => i % 2 == 0)
                 .Sum();
 
-            System.Console.WriteLine(evenFibonaccis);
-            System.Console.ReadLine();
+            Console.WriteLine(evenFibonaccis);
+            Console.ReadLine();
         }
 
         private IEnumerable<Int32> Fibonacci(Int32 upperLimit)

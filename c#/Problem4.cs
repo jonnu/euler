@@ -11,14 +11,14 @@ namespace Euler
         public override void process()
         {
             Int64 palindrome = findLargestPalindrome();
-            System.Console.WriteLine(palindrome);
-            System.Console.ReadKey();
+
+            Console.WriteLine(palindrome);
+            Console.ReadKey();
         }
 
         private Int64 findLargestPalindrome()
         {
             IEnumerable<Int32> threeDigitInts = Enumerable.Range(100, 900).Reverse();
-            System.Console.WriteLine(threeDigitInts.Last());
             Int64 largestPalindrome = 0;
 
             foreach (Int32 i in threeDigitInts)
@@ -38,7 +38,7 @@ namespace Euler
 
         private bool isPalindromic(Int64 value)
         {
-            String inputStr = value.ToString();
+            string inputStr = value.ToString();
             Char[] reversed = String.Copy(inputStr).ToCharArray();
             Array.Reverse(reversed);
 

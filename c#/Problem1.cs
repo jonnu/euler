@@ -14,8 +14,8 @@ namespace Euler
                 .Where(i => i % 3 == 0 || i % 5 == 0)
                 .Sum();
 
-            System.Console.WriteLine(sumOfMultiples);
-            System.Console.ReadKey();
+            Console.WriteLine(sumOfMultiples);
+            Console.ReadKey();
         }
     }
 }

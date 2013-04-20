@@ -13,8 +13,8 @@ namespace Euler
             IEnumerable<Int32> numbers = Enumerable.Range(1, 100);
             Double sumSquareDifference = Math.Pow(numbers.Sum(), 2) - numbers.Select(i => Math.Pow(i, 2)).Sum();
 
-            System.Console.WriteLine(sumSquareDifference);
-            System.Console.ReadKey();
+            Console.WriteLine(sumSquareDifference);
+            Console.ReadKey();
         }
 
     }
