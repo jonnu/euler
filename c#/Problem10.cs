@@ -11,9 +11,9 @@ namespace Euler
     {
         public override void process()
         {
-            IEnumerable<Int64> allPrimes = sieveOfEratosthenes(2000000);
-            Console.WriteLine(allPrimes.Sum());
+            List<Int64> allPrimes = sieveOfEratosthenes(2000000);
 
+            Console.WriteLine(allPrimes.Sum());
             Console.ReadKey();
         }
 
