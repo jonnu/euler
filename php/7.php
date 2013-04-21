@@ -37,5 +37,4 @@ function getNthPrime ($n) {
     return $primes[$n - 1];
 }
 
-
 echo sprintf("10001th prime: %s\n", getNthPrime(10001));
