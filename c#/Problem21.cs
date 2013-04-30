@@ -22,7 +22,6 @@ namespace Euler
                     divisorDictionary[pair.Value] != divisorDictionary[pair.Key]    // a != b
                 )
                 .Select(x => x.Key)
-                .ToList()
                 .Sum();
 
             Console.WriteLine("Sum of all amicable numbers below {0} = {1}", limit, amicableSum);
