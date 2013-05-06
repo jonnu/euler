@@ -13,7 +13,6 @@ namespace Euler
             Int64 palindrome = findLargestPalindrome();
 
             Console.WriteLine(palindrome);
-            Console.ReadKey();
         }
 
         private Int64 findLargestPalindrome()

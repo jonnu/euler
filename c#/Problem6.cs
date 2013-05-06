@@ -14,8 +14,6 @@ namespace Euler
             Double sumSquareDifference = Math.Pow(numbers.Sum(), 2) - numbers.Select(i => Math.Pow(i, 2)).Sum();
 
             Console.WriteLine(sumSquareDifference);
-            Console.ReadKey();
         }
-
     }
 }

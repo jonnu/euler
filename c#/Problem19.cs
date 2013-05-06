@@ -34,7 +34,7 @@ namespace Euler
             December
         };
 
-        Dictionary<int, int> monthLength = new Dictionary<int, int>()
+        private Dictionary<int, int> monthLength = new Dictionary<int, int>()
         {
             { 1, 31 },
             { 2, 28 },
@@ -50,22 +50,21 @@ namespace Euler
             { 12, 31 }
         };
 
+        private List<DateTime> validSundays = new List<DateTime>();
+
         public override void process()
         {
-            int day = 1, month = 1, year = 1900, daycount = (int)Days.Monday, sundaysOnFirst = 0;
+            int day = 1, month = 1, year = 1900;
+            
+            // 01/01/1900 was a Monday
+            int daycount = (int)Days.Monday;
 
             while (year < 2001)
             {
-                //Console.WriteLine("{0} {1} {2} {3}", Enum.GetName(typeof(Days), daycount % 7), day, Enum.GetName(typeof(Months), month), year);
-
-                if (year > 1900 && day == 1)
+                // Is this day a Sunday in the twentieth century?
+                if (year > 1900 && day == 1 && daycount % 7 == (int)Days.Sunday)
                 {
-                    bool isSunday = (daycount % 7 == 0);
-                    if (isSunday)
-                    {
-                        sundaysOnFirst++;
-                        Console.WriteLine("{0} {1} {2} {3}", Enum.GetName(typeof(Days), daycount % 7), day, Enum.GetName(typeof(Months), month), year);
-                    }
+                    validSundays.Add(new DateTime(year, month, day));
                 }
 
                 day++;
@@ -84,8 +83,7 @@ namespace Euler
                 }
             }
 
-            Console.WriteLine("sundaysOnFirst: {0}", sundaysOnFirst);
-            
+            Console.WriteLine("Sundays that fell on the 1st day of the month in the twentieth century: {0}", validSundays.Count);
         }
 
         private int getMonthLength(int month, int year)
@@ -110,3 +108,4 @@ namespace Euler
         }
     }
 }
+

@@ -23,7 +23,6 @@ namespace Euler
             }
 
             Console.WriteLine("{0} (produced chain with {1} terms)", largestChainProducer, collatzMaximum);
-            Console.ReadKey();
         }
 
         private Int32 getCollatzChainLength(Int64 n)

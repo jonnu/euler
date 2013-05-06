@@ -19,7 +19,6 @@ namespace Euler
                 .Sum();
 
             Console.WriteLine(sumAllTheDigits);
-            Console.ReadKey();
         }
     }
 }

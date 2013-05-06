@@ -17,7 +17,6 @@ namespace Euler
             cache = new Dictionary<String, Int64>();
 
             Console.WriteLine("Number of paths in {0}x{0} grid: {1}", gridSize, getNumberOfPaths());
-            Console.ReadKey();
         }
 
         private Int32 getBlockSize(Int32 x, Int32 y)

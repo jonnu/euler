@@ -22,7 +22,6 @@ namespace Euler
             }
 
             Console.WriteLine(max);
-            Console.ReadKey();
         }
 
         private Int32 productOfAllDigits(String input)

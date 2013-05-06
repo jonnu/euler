@@ -16,7 +16,6 @@ namespace Euler
                 .Sum();
 
             Console.WriteLine(evenFibonaccis);
-            Console.ReadLine();
         }
 
         private IEnumerable<Int32> Fibonacci(Int32 upperLimit)

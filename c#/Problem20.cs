@@ -20,7 +20,6 @@ namespace Euler
                 .Sum();
 
             Console.WriteLine("Sum of digits in {0}! = {1}", factor, sumOfFactoral);
-            Console.ReadKey();
         }
     }
 }

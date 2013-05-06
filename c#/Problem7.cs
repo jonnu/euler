@@ -13,7 +13,6 @@ namespace Euler
             Int64 prime = getNthPrime(10001);
 
             Console.WriteLine(prime);
-            Console.ReadKey();
         }
 
         private Int64 getNthPrime(Int32 nthPrime)

@@ -25,7 +25,6 @@ namespace Euler
             }
 
             Console.WriteLine(smallestValue);
-            Console.ReadKey();
         }
 
     }

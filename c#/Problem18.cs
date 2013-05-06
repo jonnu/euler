@@ -34,7 +34,6 @@ namespace Euler
             }
 
             Console.WriteLine("Maximum path sum: {0}", rows[0][0]);
-            Console.ReadKey();
         }
     }
 }

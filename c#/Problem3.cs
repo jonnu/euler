@@ -14,7 +14,6 @@ namespace Euler
             List<Int64> factors = primeFactors(upperLimit).ToList();
 
             Console.WriteLine(factors.Last());
-            Console.ReadLine();
         }
 
         public static IEnumerable<Int64> primeFactors(Int64 upperLimit)

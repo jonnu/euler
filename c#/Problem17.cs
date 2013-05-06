@@ -81,7 +81,6 @@ namespace Euler
             Int32 countOfLetters = englishNumbers.Select(a => a.Replace(" ", "").Length).ToList().Sum();
 
             Console.WriteLine("Letters used: {0}", countOfLetters);
-            Console.ReadKey();
         }
     }
 }

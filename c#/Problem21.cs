@@ -25,7 +25,6 @@ namespace Euler
                 .Sum();
 
             Console.WriteLine("Sum of all amicable numbers below {0} = {1}", limit, amicableSum);
-            Console.ReadKey();
         }
 
         private IEnumerable<Int32> findDivisors(Int32 value)

@@ -14,7 +14,6 @@ namespace Euler
             List<Int64> allPrimes = sieveOfEratosthenes(2000000);
 
             Console.WriteLine(allPrimes.Sum());
-            Console.ReadKey();
         }
 
         private List<Int64> sieveOfEratosthenes(Int32 limit)

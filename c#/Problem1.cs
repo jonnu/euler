@@ -15,7 +15,6 @@ namespace Euler
                 .Sum();
 
             Console.WriteLine(sumOfMultiples);
-            Console.ReadKey();
         }
     }
 }

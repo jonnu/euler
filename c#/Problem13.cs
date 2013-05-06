@@ -20,7 +20,6 @@ namespace Euler
                 .Substring(0, 10);
 
             Console.WriteLine(firstTenDigits);
-            Console.ReadKey();
         }
 
         private List<BigInteger> readBigIntegersFromFile(string filename)

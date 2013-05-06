@@ -19,7 +19,6 @@ namespace Euler
             }
 
             Console.WriteLine(triangle);
-            Console.ReadKey();
         }
 
         private IEnumerable<Int32> findDivisors(Int32 value)

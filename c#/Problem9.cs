@@ -13,7 +13,6 @@ namespace Euler
             Int64 product = findProductOfPythagoreanTriplet(1000);
 
             Console.WriteLine(product);
-            Console.ReadKey();
         }
 
         private Int64 findProductOfPythagoreanTriplet(Int32 limit)

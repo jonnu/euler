@@ -75,7 +75,6 @@ namespace Euler
             }
 
             Console.WriteLine(iterations.Max());
-            Console.ReadKey();
         }
 
         private void displayIntegerMatrix(Int32[][] matrix)
