@@ -24,7 +24,6 @@ namespace Euler
             }
 
             Console.WriteLine("F({0}) contains {1} digits.", n, limit);
-            Console.ReadKey();
         }
     }
 }

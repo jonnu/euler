@@ -19,8 +19,8 @@ namespace Euler
 
             // Get the total of all the name scores
             Int64 total = names.Select(n => getNameValue(n)).Sum();
+
             Console.WriteLine("Total for {0} names: {1}", names.Count(), total);
-            Console.ReadKey();
         }
 
         private Int32 getNameValue(String name)
