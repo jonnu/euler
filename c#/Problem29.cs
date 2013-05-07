@@ -6,7 +6,7 @@ namespace Euler
 {
     class Problem29 : Problem
     {
-        public override void process()
+        public override void Process()
         {
             int max = 100, count = 0;
             IEnumerable<int> terms = Enumerable.Range(2, max - 1);

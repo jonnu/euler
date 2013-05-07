@@ -2,16 +2,15 @@ using System;
 using System.Numerics;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Euler
 {
     class Problem20 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int32 factor = 100;
-            Int32 sumOfFactoral = Enumerable.Range(1, factor)
+            int factor = 100;
+            int sumOfFactoral = Enumerable.Range(1, factor)
                 .Select(i => (BigInteger)i)
                 .Aggregate(BigInteger.Multiply)
                 .ToString()

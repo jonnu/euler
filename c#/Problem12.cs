@@ -1,42 +1,40 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem12 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int32 divisors = 0, i = 1, triangle = 0;
-            while (divisors < 500)
+            int divisors = 0, i = 1, triangle = 0, limit = 500;
+            while (divisors < limit)
             {
                 triangle = Enumerable.Range(1, i).Sum();
-                divisors = findDivisors(triangle).Count();
+                divisors = FindDivisors(triangle).Count();
                 i++;
             }
 
-            Console.WriteLine(triangle);
+            Console.WriteLine("First triangle number with more than {0} divisors: {1}", limit, triangle);
         }
 
-        private IEnumerable<Int32> findDivisors(Int32 value)
+        private IEnumerable<int> FindDivisors(int value)
         {
-            Int32 i = 1;
-            while (i <= Math.Sqrt(value))
+            int maximum = (int)Math.Sqrt(value);
+
+            for (int factor = 1; factor <= maximum; factor++)
             {
-                if (value % i == 0)
-                {
-                    yield return i;
+                if (value % factor != 0)
+                    continue;
 
-                    if (value == 1)
-                        yield break;
+                yield return factor;
 
-                    yield return value / i;
-                }
+                if (factor == 1)
+                    continue;
 
-                i++;
+                if (factor != value / factor)
+                    yield return value / factor;
             }
         }
     }

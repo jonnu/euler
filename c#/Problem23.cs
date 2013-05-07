@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace Euler
 {
     class Problem23 : Problem
@@ -10,13 +9,13 @@ namespace Euler
         private List<int> abundantNumbers;
         private bool[] isSumOfTwoAbundants;
 
-        public override void process()
+        public override void Process()
         {
             int limit = 28123;
             
             // Create a list of 'abundant' numbers
             abundantNumbers = Enumerable.Range(1, limit)
-                .Where(x => x < GetDivisors(x).Sum())
+                .Where(x => x < FindDivisors(x).Sum())
                 .ToList();
 
             // Flag all sums of two numbers less than the limit
@@ -41,7 +40,7 @@ namespace Euler
             Console.WriteLine("Sum of integers that are not a sum of abundants: {0}", nonAbundantSum);
         }
 
-        private IEnumerable<int> GetDivisors(int value)
+        private IEnumerable<int> FindDivisors(int value)
         {
             int maximum = (int)Math.Sqrt(value);
 

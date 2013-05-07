@@ -1,30 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem8 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int32 chunk = 5, max = 0;
-            String data = readTextFile("Problem8.txt");
+            int chunk = 5, max = 0;
+            string data = ReadTextFile("Problem8.txt", true);
 
-            for (Int32 p = 0; p < data.Length - chunk; p++)
+            for (int p = 0; p < data.Length - chunk; p++)
             {
-                Int32 product = productOfAllDigits(data.Substring(p, chunk));
+                int product = ProductOfAllDigits(data.Substring(p, chunk));
                 if (product > max) {
                     max = product;
                 }
             }
 
-            Console.WriteLine(max);
+            Console.WriteLine("Largest product of {0} consequtive digits: {1}", chunk, max);
         }
 
-        private Int32 productOfAllDigits(String input)
+        private int ProductOfAllDigits(string input)
         {
             if (input.Contains("0") || input.Length == 0)
                 return 0;

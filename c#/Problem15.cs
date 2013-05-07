@@ -1,40 +1,37 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem15 : Problem
     {
-        private Int32 gridSize;
-        private Dictionary<String, Int64> cache;
+        private int gridSize;
+        private Dictionary<string, long> cache;
 
-        public override void process()
+        public override void Process()
         {
             gridSize = 20;
-            cache = new Dictionary<String, Int64>();
+            cache = new Dictionary<string, long>();
 
             Console.WriteLine("Number of paths in {0}x{0} grid: {1}", gridSize, getNumberOfPaths());
         }
 
-        private Int32 getBlockSize(Int32 x, Int32 y)
+        private int getBlockSize(int x, int y)
         {
             return (gridSize - x) * (gridSize - y);
         }
 
-        private String getBlockString(Int32 x, Int32 y)
+        private string getBlockString(int x, int y)
         {
             return (gridSize - x) + "x" + (gridSize - y);
         }
 
-        private Int64 getNumberOfPaths(Int32 x = 0, Int32 y = 0)
+        private long getNumberOfPaths(int x = 0, int y = 0)
         {
             if (getBlockSize(x, y) == 0)
                 return 1;
             
-            Int64 p = 0;
+            long p = 0;
             string block = getBlockString(x, y);
 
             if (!cache.ContainsKey(block))

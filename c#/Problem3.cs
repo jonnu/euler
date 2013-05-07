@@ -1,24 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem3 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int64 upperLimit = 600851475143;
-            List<Int64> factors = primeFactors(upperLimit).ToList();
+            long limit = 600851475143;
+            long largestPrimeFactor = GetPrimeFactors(limit).Last();
 
-            Console.WriteLine(factors.Last());
+            Console.WriteLine("Largest factor of {0}: {1}", limit, largestPrimeFactor);
         }
 
-        public static IEnumerable<Int64> primeFactors(Int64 upperLimit)
+        private IEnumerable<Int64> GetPrimeFactors(long upperLimit)
         {
-            for (Int32 div = 2; upperLimit > 1;)
+            for (int div = 2; upperLimit > 1;)
             {
                 while (upperLimit % div == 0)
                 {

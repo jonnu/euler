@@ -1,31 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem4 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int64 palindrome = findLargestPalindrome();
+            long palindrome = FindLargestPalindrome();
 
-            Console.WriteLine(palindrome);
+            Console.WriteLine("Largest Palindrome: {0}", palindrome);
         }
 
-        private Int64 findLargestPalindrome()
+        private long FindLargestPalindrome()
         {
-            IEnumerable<Int32> threeDigitInts = Enumerable.Range(100, 900).Reverse();
-            Int64 largestPalindrome = 0;
+            long largestPalindrome = 0;
+            IEnumerable<int> threeDigitInts = Enumerable.Range(100, 900).Reverse();
 
-            foreach (Int32 i in threeDigitInts)
+            foreach (int i in threeDigitInts)
             {
-                foreach (Int32 j in threeDigitInts)
+                foreach (int j in threeDigitInts)
                 {
-                    Int64 possiblePalindrome = i * j;
-                    if (isPalindromic(possiblePalindrome) && possiblePalindrome > largestPalindrome)
+                    long possiblePalindrome = i * j;
+                    if (IsPalindromic(possiblePalindrome) && possiblePalindrome > largestPalindrome)
                     {
                         largestPalindrome = possiblePalindrome;
                     }
@@ -35,7 +33,7 @@ namespace Euler
             return largestPalindrome;
         }
 
-        private bool isPalindromic(Int64 value)
+        private bool IsPalindromic(long value)
         {
             string inputStr = value.ToString();
             Char[] reversed = String.Copy(inputStr).ToCharArray();

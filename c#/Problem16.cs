@@ -2,23 +2,21 @@ using System;
 using System.Numerics;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem16 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            BigInteger largePower = BigInteger.Pow(2, 1000);
-            Int64 sumAllTheDigits = largePower
+            int limit = 1000;
+            long sumOfAllDigits = BigInteger.Pow(2, limit)
                 .ToString()
                 .ToCharArray()
                 .Select(n => Int32.Parse(n.ToString()))
                 .Sum();
 
-            Console.WriteLine(sumAllTheDigits);
+            Console.WriteLine("Sum of all digits in 2^{1}: {0}", sumOfAllDigits, limit);
         }
     }
 }

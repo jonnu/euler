@@ -9,7 +9,7 @@ namespace Euler
 {
     class Problem25 : Problem
     {
-        public override void process()
+        public override void Process()
         {
             int n = 0, limit = 1000;
             BigInteger current = 0, previous = 1;

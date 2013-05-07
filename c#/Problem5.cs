@@ -1,20 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem5 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int64 smallestValue = 0;
+            long smallestValue = 0;
             bool perfectlyDivisible = false;
 
-            IEnumerable<Int32> integerRange = Enumerable.Range(11, 10);
-            Int32 integerStep = integerRange.Max();
+            IEnumerable<int> integerRange = Enumerable.Range(11, 10);
+            int integerStep = integerRange.Max();
 
             while (!perfectlyDivisible)
             {

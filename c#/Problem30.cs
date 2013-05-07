@@ -6,7 +6,7 @@ namespace Euler
 {
     class Problem30 : Problem
     {
-        public override void process()
+        public override void Process()
         {
             Console.WriteLine("Sum of all digit fifth powers: {0}", GetDigitFifthPowers().Sum());
         }

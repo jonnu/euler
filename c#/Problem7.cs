@@ -1,31 +1,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem7 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int64 prime = getNthPrime(10001);
+            int limit = 10001;
+            long prime = GetNthPrime(limit);
 
-            Console.WriteLine(prime);
+            Console.WriteLine("Prime #{0} = {1}", limit, prime);
         }
 
-        private Int64 getNthPrime(Int32 nthPrime)
+        private long GetNthPrime(int nthPrime)
         {
-            IList<Int64> primes = new List<Int64>(2);
+            IList<long> primes = new List<long>(2);
             bool isComposite = false;
 
-            for (Int64 n = 2; primes.Count() < nthPrime; ++n)
+            for (long n = 2; primes.Count() < nthPrime; ++n)
             {
                 isComposite = false;
-                Double rootOfN = Math.Sqrt(n);
+                double rootOfN = Math.Sqrt(n);
 
-                foreach (Int64 prime in primes)
+                foreach (long prime in primes)
                 {
                     if (prime > rootOfN)
                     {

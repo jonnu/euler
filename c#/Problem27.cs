@@ -10,7 +10,7 @@ namespace Euler
         private int coefficient_b = 0;
         private int maximumPrimes = 0;
 
-        public override void process()
+        public override void Process()
         {
             for (int b = -999; Math.Abs(b) < 1000; b++)
             {

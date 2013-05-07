@@ -1,21 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Euler
 {
     class Problem21 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int32 limit = 10000;
+            int limit = 10000;
 
             // Create a dictionary mapping Int32s to the sum of their divisors
-            Dictionary<Int32, Int32> divisorDictionary = Enumerable.Range(1, limit - 1)
-                .ToDictionary(x => x, x => findDivisors(x).Sum());
+            Dictionary<int, int> divisorDictionary = Enumerable.Range(1, limit - 1)
+                .ToDictionary(x => x, x => FindDivisors(x).Sum());
 
-            Int32 amicableSum = divisorDictionary
+            int amicableSum = divisorDictionary
                 .Where(pair =>
                     divisorDictionary.ContainsKey(pair.Value) &&                    // d[a] exists, d[a] = b
                     divisorDictionary[pair.Value] == pair.Key &&                    // d[b] = a
@@ -27,26 +26,22 @@ namespace Euler
             Console.WriteLine("Sum of all amicable numbers below {0} = {1}", limit, amicableSum);
         }
 
-        private IEnumerable<Int32> findDivisors(Int32 value)
+        private IEnumerable<int> FindDivisors(int value)
         {
-            Int32 i = 1;
-            Double sqrt = Math.Sqrt(value);
-            while (i <= sqrt)
+            int maximum = (int)Math.Sqrt(value);
+
+            for (int factor = 1; factor <= maximum; factor++)
             {
-                if (value % i == 0 && i < value)
-                {
-                    yield return i;
+                if (value % factor != 0)
+                    continue;
 
-                    if (value == 1)
-                        yield break;
+                yield return factor;
 
-                    if (i > 1)
-                    {
-                        yield return value / i;
-                    }
-                }
+                if (factor == 1)
+                    continue;
 
-                i++;
+                if (factor != value / factor)
+                    yield return value / factor;
             }
         }
     }

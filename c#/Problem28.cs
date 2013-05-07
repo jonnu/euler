@@ -9,7 +9,7 @@ namespace Euler
 
         private enum Axis { X, Y };
 
-        public override void process()
+        public override void Process()
         {
             int size = 1001;
             GenerateSpiral(size);

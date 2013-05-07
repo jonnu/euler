@@ -3,28 +3,24 @@ using System.IO;
 using System.Numerics;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem13 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            List<BigInteger> values = readBigIntegersFromFile("Problem13.txt");
-
-            string firstTenDigits = values
+            string firstTenDigits = ReadBigIntegersFromFile("Problem13.txt")
                 .Aggregate((current, next) => current + next)
                 .ToString()
                 .Substring(0, 10);
 
-            Console.WriteLine(firstTenDigits);
+            Console.WriteLine("First 10 digits: {0}", firstTenDigits);
         }
 
-        private List<BigInteger> readBigIntegersFromFile(string filename)
+        private IEnumerable<BigInteger> ReadBigIntegersFromFile(string filename)
         {
-            string raw = readTextFile(filename, false);
+            string raw = ReadTextFile(filename, false);
             List<BigInteger> data = new List<BigInteger>();
 
             using (StringReader reader = new StringReader(raw))
@@ -32,11 +28,9 @@ namespace Euler
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    data.Add(BigInteger.Parse(line));
+                    yield return BigInteger.Parse(line);
                 }
             }
-
-            return data;
         }
     }
 }

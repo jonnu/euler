@@ -52,7 +52,7 @@ namespace Euler
 
         private List<DateTime> validSundays = new List<DateTime>();
 
-        public override void process()
+        public override void Process()
         {
             int day = 1, month = 1, year = 1900;
             
@@ -70,7 +70,7 @@ namespace Euler
                 day++;
                 daycount++;
 
-                if (day > getMonthLength(month, year))
+                if (day > GetMonthLength(month, year))
                 {
                     day = 1;
                     month++;
@@ -86,15 +86,15 @@ namespace Euler
             Console.WriteLine("Sundays that fell on the 1st day of the month in the twentieth century: {0}", validSundays.Count);
         }
 
-        private int getMonthLength(int month, int year)
+        private int GetMonthLength(int month, int year)
         {
             if (month != (int)Months.February)
                 return monthLength[month];
 
-            return !isLeapYear(year) ? monthLength[month] : monthLength[month] + 1;
+            return !IsLeapYear(year) ? monthLength[month] : monthLength[month] + 1;
         }
 
-        private bool isLeapYear(int year)
+        private bool IsLeapYear(int year)
         {
             // Years divisible by 4.
             if (year % 4 != 0)

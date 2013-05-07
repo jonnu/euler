@@ -2,28 +2,26 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem11 : Problem
     {
-        private Int32[][] matrix;
-        private List<Int64> iterations;
-        private Int32 valuesToTake = 4;
+        private int[][] matrix;
+        private List<long> iterations;
+        private int valuesToTake = 4;
 
-        public override void process()
+        public override void Process()
         {
-            string data = readTextFile("Problem11.txt", false);
-            matrix = convertToIntegerMatrix(data);
+            string data = ReadTextFile("Problem11.txt", false);
+            matrix = ConvertToIntegerMatrix(data);
 
-            iterations = new List<Int64>();
-            // displayIntegerMatrix(matrix);
+            iterations = new List<long>();
+            // DisplayIntegerMatrix(matrix);
 
-            for (Int32 row = 0; row < matrix.Length; row++)
+            for (int row = 0; row < matrix.Length; row++)
             {
-                for (Int32 col = 0; col < matrix[row].Length; col++)
+                for (int col = 0; col < matrix[row].Length; col++)
                 {
                     // Which directions are feasable at this position?
                     bool d_n = row >= 3;
@@ -74,16 +72,16 @@ namespace Euler
 
             }
 
-            Console.WriteLine(iterations.Max());
+            Console.WriteLine("Greatest product of {0} adjacent numbers: {1}", valuesToTake, iterations.Max());
         }
 
-        private void displayIntegerMatrix(Int32[][] matrix)
+        private void DisplayIntegerMatrix(int[][] matrix)
         {
-            for (Int32 x = 0; x < matrix.Length; x++)
+            for (int x = 0; x < matrix.Length; x++)
             {
-                for (Int32 y = 0; y < matrix[x].Length; y++)
+                for (int y = 0; y < matrix[x].Length; y++)
                 {
-                    Console.Write("{0, 2}{1}", matrix[x][y], y == (matrix[x].Length - 1) ? "" : " ");
+                    Console.Write("{0,2}{1}", matrix[x][y], y == (matrix[x].Length - 1) ? "" : " ");
                 }
 
                 Console.WriteLine();
@@ -92,17 +90,17 @@ namespace Euler
             Console.WriteLine();
         }
 
-        private Int32[][] convertToIntegerMatrix(String data)
+        private int[][] ConvertToIntegerMatrix(String data)
         {
-            Int32 size = data.Count(c => c == '\n') + 1;
-            Int32[][] matrix = new Int32[size][];
+            int size = data.Count(c => c == '\n') + 1;
+            int[][] matrix = new int[size][];
             using (StringReader reader = new StringReader(data))
             {
                 string chunk;
-                Int32 i = 0;
+                int i = 0;
                 while ((chunk = reader.ReadLine()) != null)
                 {
-                    Int32[] thisLine = chunk.Split(' ').Select(j => Int32.Parse(j)).ToArray();
+                    int[] thisLine = chunk.Split(' ').Select(j => Int32.Parse(j)).ToArray();
                     matrix.SetValue(thisLine, i);
                     i++;
                 }

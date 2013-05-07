@@ -1,23 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem9 : Problem
     {
-        public override void process()
+        public override void Process()
         {
-            Int64 product = findProductOfPythagoreanTriplet(1000);
+            long product = FindProductOfPythagoreanTriplet(1000);
 
-            Console.WriteLine(product);
+            Console.WriteLine("Product of Special Pythagorean triplet: {0}", product);
         }
 
-        private Int64 findProductOfPythagoreanTriplet(Int32 limit)
+        private long FindProductOfPythagoreanTriplet(int limit)
         {
-            Int32 a, b, c;
+            int a, b, c;
 
             for (a = 1; a < 500; a++)
             {

@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euler
 {
     class Problem17 : Problem
     {
-        List<String> englishNumbers;
-        List<Int32> englishKeys;
+        List<string> englishNumbers;
+        List<int> englishKeys;
 
-        public override void process()
+        public override void Process()
         {
-            Dictionary<Int32, String> english = new Dictionary<Int32, String>() {
+            Dictionary<int, string> english = new Dictionary<int, string>() {
                 { 1, "one" },
                 { 2, "two" },
                 { 3, "three" },
@@ -53,10 +51,10 @@ namespace Euler
                 { 1000, "one thousand" }
             };
 
-            englishNumbers = new List<String>();
+            englishNumbers = new List<string>();
             englishKeys = english.Keys.ToList();
 
-            for (Int32 i = 1; i <= 1000; i++)
+            for (int i = 1; i <= 1000; i++)
             {
                 // Exact match?
                 if (english.ContainsKey(i)) {
@@ -64,13 +62,13 @@ namespace Euler
                     continue;
                 }
 
-                Int32 remainder = i, amount = 0;
+                int remainder = i, amount = 0;
                 string newNumber = "";
                 while (remainder > 0)
                 {
-                    Int32 largest = englishKeys.FindAll(x => x <= remainder).Last();
+                    int largest = englishKeys.FindAll(x => x <= remainder).Last();
 
-                    amount = (Int32)Math.Floor((Double)(remainder / largest));
+                    amount = (int)Math.Floor((double)(remainder / largest));
                     newNumber += String.Format("{0}{1}{2}", (amount > 100) ? english[amount] + " " : "", (remainder > 100 ? " and " : " "), english[largest]);
                     remainder = remainder % largest;
                 }
@@ -78,7 +76,7 @@ namespace Euler
                 englishNumbers.Add(newNumber);
             }
 
-            Int32 countOfLetters = englishNumbers.Select(a => a.Replace(" ", "").Length).ToList().Sum();
+            int countOfLetters = englishNumbers.Select(a => a.Replace(" ", "").Length).ToList().Sum();
 
             Console.WriteLine("Letters used: {0}", countOfLetters);
         }
