@@ -51,14 +51,14 @@ namespace Euler
 
         public bool Pandigital()
         {
-            char[] chars = (Product.ToString() + multiplicand.ToString() + multiplier.ToString()).ToCharArray();
-            Length = chars.Count();
+            string joined = Product.ToString() + multiplicand.ToString() + multiplier.ToString();
+            Length = joined.Length;
 
             if (Length != 9)
                 return false;
 
-            Array.Sort(chars);
-            return new String(chars) == "123456789";
+            char[] sorted = joined.ToCharArray().OrderBy(x => x).ToArray();
+            return new String(sorted) == "123456789";
         }
     }
 }
