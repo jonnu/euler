@@ -35,22 +35,23 @@ namespace Euler
 
     class PandigitalCheck
     {
-        private int Multiplicand;
-        private int Multiplier;
+        private int multiplicand;
+        private int multiplier;
 
-        public int Length { private set; get; }
-        public long Product { private set; get; }        
+        public int Length { get; private set; }
+        public long Product { get; private set; }
 
         public PandigitalCheck(int multiplicand, int multiplier)
         {
-            Multiplicand = multiplicand;
-            Multiplier = multiplier;
-            Product = Multiplicand * Multiplier;
+            this.multiplicand = multiplicand;
+            this.multiplier = multiplier;
+
+            Product = multiplicand * multiplier;
         }
 
         public bool Pandigital()
         {
-            Char[] chars = (Product.ToString() + Multiplicand.ToString() + Multiplier.ToString()).ToCharArray();
+            char[] chars = (Product.ToString() + multiplicand.ToString() + multiplier.ToString()).ToCharArray();
             Length = chars.Count();
 
             if (Length != 9)
