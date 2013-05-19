@@ -8,7 +8,7 @@ namespace Euler
     {
         public override void Process()
         {
-            Int32 sumOfMultiples = Enumerable.Range(0, 1000)
+            int sumOfMultiples = Enumerable.Range(0, 1000)
                 .Where(i => i % 3 == 0 || i % 5 == 0)
                 .Sum();
 
