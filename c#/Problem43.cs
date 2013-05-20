@@ -34,12 +34,6 @@ namespace Euler
             }
             private set
             {
-                if (value < 0)
-                {
-                    Console.WriteLine(perm);
-                    Console.WriteLine(value);
-                }
-
                 perm = value;
                 sub = new int[7];
                 long temp = value;
