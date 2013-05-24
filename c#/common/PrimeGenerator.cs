@@ -44,7 +44,7 @@ namespace Euler
             primes = new List<int>();
             for (int a = 2; a < limit; a++)
             {
-                if (primeCache[a] && (filterFunction != null && filterFunction(a)))
+                if (primeCache[a] && (filterFunction == null || filterFunction(a)))
                 {
                     primes.Add(a);
                 }
