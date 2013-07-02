@@ -50,6 +50,11 @@ namespace Euler
 
         private void SetDigitAt(int index, int value)
         {
+            if (digit.Count > index) {
+                digit[index] = value;
+                return;
+            }
+
             digit.Insert(index, value);
             if (value > 0 && (index + 1 > Length))
             {
@@ -87,6 +92,59 @@ namespace Euler
             return newInt;
         }
 
+        public static LargeInt Multiply(LargeInt x, LargeInt y)
+        {
+            LargeInt newInt = new LargeInt();
+
+            for (int i = 0; i < y.Length; i++)
+            {
+                int carry = 0;
+                for (int j = 0; j < x.Length; j++)
+                {
+                    int zDigit = (y.GetDigitAt(i) * x.GetDigitAt(j)) + newInt.GetDigitAt(i + j) + carry;
+                    
+                    newInt.SetDigitAt(i + j, zDigit % 10);
+                    carry = zDigit / 10;
+                }
+
+                newInt.SetDigitAt(i + x.Length, carry);
+            }
+
+            return newInt;
+        }
+
+        public static LargeInt Multiply(LargeInt x, int y)
+        {
+            LargeInt integer = new LargeInt(x);
+            for (int i = 1; i < y; i++)
+            {
+                integer += x;                
+            }
+
+            return integer;
+        }
+
+        public static LargeInt Pow(int x, int y)
+        {
+            LargeInt integer = new LargeInt(x);
+            for (int i = 1; i < y; i++)
+            {
+                integer = LargeInt.Multiply(integer, x);
+            }
+
+            return integer;
+        }
+
+        public static LargeInt Pow(LargeInt x, int y)
+        {
+            for (int i = 1; i < y; i++)
+            {
+                x *= x;
+            }
+
+            return x;
+        }
+
         public bool Palindrome()
         {
             for (int i = 0, j = (Length - 1) - i; i < (Length - 1) / 2; i++, j--)
@@ -110,6 +168,17 @@ namespace Euler
             }
 
             return this;
+        }
+
+        public int DigitSum()
+        {
+            int sum = 0;
+            for (int i = 0; i < Length; i++)
+            {
+                sum += digit[i];
+            }
+
+            return sum;
         }
 
         public int CompareTo(object obj)
@@ -168,6 +237,32 @@ namespace Euler
         public static LargeInt operator +(LargeInt x, LargeInt y)
         {
             return LargeInt.Add(x, y);
+        }
+
+        public static LargeInt operator *(LargeInt x, int y)
+        {
+            return LargeInt.Multiply(x, y);
+        }
+
+        public static LargeInt operator *(LargeInt x, LargeInt y)
+        {
+            return LargeInt.Multiply(x, y);
+        }
+
+        public static explicit operator long(LargeInt largeInt)
+        {
+            long integer = 0;
+            for (int i = largeInt.Length - 1, power = 1; i >= 0; i--, power *= radix)
+            {
+                integer += largeInt.GetDigitAt(i * power);
+            }
+
+            return integer;
+        }
+
+        public static implicit operator LargeInt(long value)
+        {
+            return new LargeInt(value);
         }
 
         public override int GetHashCode()
